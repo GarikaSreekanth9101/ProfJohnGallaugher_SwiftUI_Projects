@@ -14,18 +14,27 @@ struct ButtonExample: View {
     var body: some View {
         
         VStack {
+            Spacer()
             Image(systemName: "swift")
                 .resizable()
                 .scaledToFit()
                 .foregroundStyle(.orange)
+                .frame(width: 300, height: 300)
             Text(message)
                 .font(.largeTitle)
-                .multilineTextAlignment(.center)
-                .foregroundStyle(.orange)
-            
-            Button("Click Me!"){
-                self.message = "You Are Awesome!"
+                .fontWeight(.ultraLight)
+            Spacer()
+            HStack {
+                Button("Awesome"){
+                    self.message = "Awesome!"
+                }
+                Button("Great"){
+                    self.message = "Great!"
+                }
             }
+            .buttonStyle(.borderedProminent)
+            .font(.title2)
+            .tint(.orange)
             
         }
         .padding()
