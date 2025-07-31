@@ -1,13 +1,15 @@
 //
-//  ContentView.swift
+//  ButtonExample.swift
 //  ProfJohnGallaugher_SwiftUI_Projects
 //
-//  Created by Suja Associates on 29/07/25.
+//  Created by Suja Associates on 31/07/25.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct ButtonExample: View {
+    
+    @State private var message: String = "I am A Programmer!"
     
     var body: some View {
         
@@ -16,16 +18,21 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFit()
                 .foregroundStyle(.orange)
-            Text("You Are Awesome!")
+            Text(message)
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.orange)
+            
+            Button("Click Me!"){
+                self.message = "You Are Awesome!"
+            }
+            
         }
         .padding()
+        
     }
-    
 }
 
 #Preview {
-    ContentView()
+    ButtonExample()
 }
