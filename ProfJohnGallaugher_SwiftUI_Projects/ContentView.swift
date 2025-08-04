@@ -23,22 +23,27 @@ struct ContentView: View {
     var body: some View {
         
         VStack {
-            Spacer()
-            Image(imageString)
-                .resizable()
-                .scaledToFit()
-                .clipShape(RoundedRectangle(cornerRadius: 30))
-                .shadow(radius: 30)
             Text(message)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundStyle(.red)
                 .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.5)
+                .frame(height: 120)
+                .animation(.easeInOut(duration: 0.15), value: message)
+            Image(imageString)
+                .resizable()
+                .scaledToFit()
+                .clipShape(RoundedRectangle(cornerRadius: 30))
+                .shadow(radius: 30)
+                .animation(.default, value: imageString)
+            
+          
             Spacer()
             Button("Show Message"){
             
-                let message1 = "You Are Awesome!"
-                let message2 = "You Are Great!"
+//                let message1 = "You Are Awesome!"
+//                let message2 = "You Are Great!"
                 
 //                self.message = self.message == message1 ? message2 : message1
 //                self.imageString = "image\(count)"
