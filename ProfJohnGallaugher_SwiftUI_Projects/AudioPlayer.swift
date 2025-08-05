@@ -41,6 +41,9 @@ struct AudioPlayer: View {
                 .minimumScaleFactor(0.5)
                 .frame(height: 120)
                 .animation(.easeInOut(duration: 0.15), value: message)
+            
+            Spacer()
+            
             Image(imageString)
                 .resizable()
                 .scaledToFit()
@@ -93,7 +96,7 @@ struct AudioPlayer: View {
                     soundNumber = Int.random(in: 0...numberOfSounds - 1)
                 }while soundNumber == lastSoundNumber
                 
-                var soundName = "sound\(soundNumber)"
+                let soundName = "sound\(soundNumber)"
                 self.lastSoundNumber = soundNumber
                 
                 guard let soundFile = NSDataAsset(name: soundName)else{
