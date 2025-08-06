@@ -23,6 +23,7 @@ struct ContentView: View {
     var body: some View {
         
         VStack {
+            
             Text(message)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
@@ -31,6 +32,7 @@ struct ContentView: View {
                 .minimumScaleFactor(0.5)
                 .frame(height: 120)
                 .animation(.easeInOut(duration: 0.15), value: message)
+            
             Image(imageString)
                 .resizable()
                 .scaledToFit()
@@ -38,15 +40,16 @@ struct ContentView: View {
                 .shadow(radius: 30)
                 .animation(.default, value: imageString)
             
-          
-            Spacer()
-            Button("Show Message"){
             
-//                let message1 = "You Are Awesome!"
-//                let message2 = "You Are Great!"
+            Spacer()
+            
+            Button("Show Message"){
                 
-//                self.message = self.message == message1 ? message2 : message1
-//                self.imageString = "image\(count)"
+                //                let message1 = "You Are Awesome!"
+                //                let message2 = "You Are Great!"
+                
+                //                self.message = self.message == message1 ? message2 : message1
+                //                self.imageString = "image\(count)"
                 
                 self.message = messageArray[count]
                 self.imageString = imgArray[count]
@@ -57,19 +60,19 @@ struct ContentView: View {
                     count = 0
                 }
                 
-              
                 
-//                if count > 9{
-//                    count = 0
-//                    self.message = self.message == message1 ? message2 : message1
-////                    self.imageString = imgArray[count]
-//                    self.imageString = "image\(count)"
-//                }else{
-//                    self.message = self.message == message1 ? message2 : message1
-////                    self.imageString = imgArray[count]
-//                    self.imageString = "image\(count)"
-//                }
-               
+                
+                //                if count > 9{
+                //                    count = 0
+                //                    self.message = self.message == message1 ? message2 : message1
+                ////                    self.imageString = imgArray[count]
+                //                    self.imageString = "image\(count)"
+                //                }else{
+                //                    self.message = self.message == message1 ? message2 : message1
+                ////                    self.imageString = imgArray[count]
+                //                    self.imageString = "image\(count)"
+                //                }
+                
                 
             }
             .buttonStyle(.borderedProminent)

@@ -16,7 +16,7 @@ struct AudioPlayer: View {
     
     @State private var imageString: String = ""
     @State private var message: String = ""
- 
+    
     
     @State private var lastSoundNumber: Int = -1
     @State private var lastImageNumber: Int = -1
@@ -51,27 +51,27 @@ struct AudioPlayer: View {
                 .shadow(radius: 30)
                 .animation(.default, value: imageString)
             
-          
+            
             Spacer()
             Button("Show Message"){
-            
-//                // MARK: While Loop
-//                var messageNumber: Int = Int.random(in: 0...messageArray.count - 1)
-//
-//                while messageNumber == lastMessageNumber{
-//                    messageNumber = Int.random(in: 0...messageArray.count - 1)
-//                }
-//                self.message = messageArray[messageNumber]
-//                self.lastMessageNumber = messageNumber
-//
-//
-//                var imageNumber: Int = Int.random(in: 0...imgArray.count - 1)
-//
-//                while imageNumber == lastMessageNumber{
-//                    imageNumber = Int.random(in: 0...imgArray.count - 1)
-//                }
-//                self.imageString = imgArray[imageNumber]
-//                self.lastImageNumber = imageNumber
+                
+                //                // MARK: While Loop
+                //                var messageNumber: Int = Int.random(in: 0...messageArray.count - 1)
+                //
+                //                while messageNumber == lastMessageNumber{
+                //                    messageNumber = Int.random(in: 0...messageArray.count - 1)
+                //                }
+                //                self.message = messageArray[messageNumber]
+                //                self.lastMessageNumber = messageNumber
+                //
+                //
+                //                var imageNumber: Int = Int.random(in: 0...imgArray.count - 1)
+                //
+                //                while imageNumber == lastMessageNumber{
+                //                    imageNumber = Int.random(in: 0...imgArray.count - 1)
+                //                }
+                //                self.imageString = imgArray[imageNumber]
+                //                self.lastImageNumber = imageNumber
                 
                 
                 // MARK: Repeat While Loop
@@ -90,7 +90,7 @@ struct AudioPlayer: View {
                 self.imageString = imgArray[imageNumber]
                 self.lastImageNumber = imageNumber
                 
-                                
+                
                 var soundNumber: Int
                 repeat{
                     soundNumber = Int.random(in: 0...numberOfSounds - 1)
@@ -110,7 +110,7 @@ struct AudioPlayer: View {
                 }catch{
                     print("😡 ERROR: \(error.localizedDescription) creating audio player!")
                 }
-
+                
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
