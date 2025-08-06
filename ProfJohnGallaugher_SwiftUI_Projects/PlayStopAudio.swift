@@ -38,7 +38,7 @@ struct PlayStopAudio: View {
             Text(message)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
-                .foregroundStyle(.red)
+                .foregroundStyle(.accent)
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.5)
                 .frame(height: 120)
@@ -67,7 +67,6 @@ struct PlayStopAudio: View {
                             audioPlayer.stop()
                         }
                     }
-                    
                 
                 Spacer()
            
@@ -95,7 +94,9 @@ struct PlayStopAudio: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .font(.title2)
+               
             }
+            .tint(.accent)
         }
         .padding()
         
@@ -133,6 +134,17 @@ struct PlayStopAudio: View {
     
 }
 
-#Preview {
+//#Preview  {
+//    PlayStopAudio()
+//}
+//For checking color schemes
+#Preview("Light Mode")  {
     PlayStopAudio()
+        .preferredColorScheme(.light)
 }
+
+#Preview("Dark Mode")  {
+    PlayStopAudio()
+        .preferredColorScheme(.dark)
+}
+
