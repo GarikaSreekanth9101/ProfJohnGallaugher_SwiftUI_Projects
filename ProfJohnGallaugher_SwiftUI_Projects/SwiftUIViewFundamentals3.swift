@@ -102,7 +102,7 @@ struct SwiftUIViewFundamentals3: View {
             
             Spacer()
             Text(message)
-                .foregroundStyle(.accent)
+                .foregroundStyle(.indigo)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .multilineTextAlignment(.center)
@@ -125,6 +125,7 @@ struct SwiftUIViewFundamentals3: View {
             .buttonStyle(.borderedProminent)
             .foregroundStyle(.white)
             .font(.title2)
+            .tint(.indigo)
             .padding()
             
             Rectangle()
