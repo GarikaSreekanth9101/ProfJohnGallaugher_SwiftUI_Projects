@@ -15,6 +15,7 @@ struct TwoWayBindings: View {
     @State private var selectedColor: Color = .red
     @State private var selectedDate: Date = Date()
     @State private var stepperValue: Int = 0
+    @State private var sliderValue: Double = 0
     
     var body: some View {
         
@@ -29,30 +30,45 @@ struct TwoWayBindings: View {
             .buttonStyle(.borderedProminent)
             
             Spacer()
-            //Text Field
+            //MARK: - Text Field
             TextField("Enter a name", text: $name)
                 .textFieldStyle(.roundedBorder)
             Text("Name Entered: \(name)")
             
             Spacer()
-            //Switch Buttom
+            //MARK: - Switch Buttom
             Toggle("Toggle is \(toggleIsOn ? "On" : "Off")", isOn: $toggleIsOn)
             Spacer()
             Rectangle()
                 .fill(selectedColor)
                 .frame(width: 100, height: 100)
                 .padding()
-            //Color Picker
+            //MARK: - Color Picker
             ColorPicker("Pick a rectangle color", selection: $selectedColor)
             Spacer()
-            //Date Picker
+            //MARK: - Date Picker
             DatePicker("Date:", selection: $selectedDate)
             Text("Selected Date is \(selectedDate.formatted(date: .abbreviated, time: .shortened))")
             Spacer()
-            //Stepper
+            //MARK: - Stepper
             Stepper("Stepper Value: \(stepperValue)", value: $stepperValue, in: 0...10)
 //            Stepper("Stepper Value: \(stepperValue)", value: $stepperValue)
-            
+            Spacer()
+            //MARK: - Slider
+            //With Min and max labels
+            Slider(value: $sliderValue, in: 0...100) {
+                //Accessbility label
+                
+            } minimumValueLabel: {
+                Image(systemName: "speaker.minus")
+                Text("0")
+            } maximumValueLabel: {
+                Image(systemName: "speaker.plus")
+                Text("100")
+            }
+
+           // Slider(value: $sliderValue, in: 0...100)
+            Text("Slider Value: \(Int(sliderValue))%")
             Spacer()
             
         }
