@@ -6,22 +6,12 @@
 //
 
 import SwiftUI
+import AVFAudio
 
 struct ContentView: View {
     
     var body: some View {
         
-        VStack {
-            Image(systemName: "swift")
-                .resizable()
-                .scaledToFit()
-                .foregroundStyle(.orange)
-            Text("You Are Awesome!")
-                .font(.largeTitle)
-                .multilineTextAlignment(.center)
-                .foregroundStyle(.orange)
-        }
-        .padding()
     }
     
 }
