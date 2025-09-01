@@ -5,7 +5,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>
-		<string>tutor-launchscreen</string>
+		<string>launch-screen</string>
 		<key>UILaunchScreen</key>
 		<dict/>
 	</dict>
