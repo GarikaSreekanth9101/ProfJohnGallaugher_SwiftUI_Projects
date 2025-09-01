@@ -53,6 +53,8 @@ struct ContentView: View {
             Image(getImageName(logoName: logos[logoNumber]))
                 .resizable()
                 .scaledToFit()
+//                .clipShape(RoundedRectangle(cornerRadius: 5))
+//                .shadow(radius: 10)
             Spacer()
             
             VStack{
