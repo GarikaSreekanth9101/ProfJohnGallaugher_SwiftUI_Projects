@@ -9,130 +9,167 @@ import SwiftUI
 
 struct ContentView: View {
     
-
-    private let logos: [String] = ["1924-Paris-France.jpg",
-                                    "1932-los-angeles-usa.jpg",
-                                    "1936-berlin-germany.png",
-                                    "1948-london-england.jpg",
-                                    "1952-helsinki-finland.jpg",
-                                    "1956-melbourne-australia.jpg",
-                                    "1960-rome-italy.jpg",
-                                    "1964-tokyo-japan.jpg",
-                                    "1968-mexico-city-mexico.jpg",
-                                    "1972-munich-germany.png",
-                                    "1976-montreal-canada.jpg",
-                                    "1980-moscow-russia.jpg",
-                                    "1984-los-angeles-usa.jpg",
-                                    "1988-seoul-south-korea.jpg",
-                                    "1992-barcelona-spain.jpg",
-                                    "1996-atlanta-usa.jpg",
-                                    "2000-sydney-australia.jpg",
-                                    "2004-athens-greece.png",
-                                    "2008-beijing-china.jpg",
-                                    "2012-london-england.jpg",
-                                    "2016-rio-brazil.jpg",
-                                    "2020-tokyo-japan.jpeg",
-                                    "2024-paris-france.png",
-                                    "2028-los-angeles-usa.png",
-                                    "2032-brisbane-australia"
-    ]
+    @State private var enteredText: String = ""
+    @State private var staticCoderNameIs: String = ""
+    @State private var wuTangName: String = ""
+    @State private var imageName: String = "wu-tang"
+    @FocusState private var iSFocused: Bool
     
-    @State private var logoNumber: Int = 0
-
+    private var firstColumn: [String] = ["Algorithmic",
+                                                "Byte",
+                                                "Cache",
+                                                "Debug",
+                                                "Echo",
+                                                "Function",
+                                                "Git",
+                                                "Hex",
+                                                "Infinite",
+                                                "Java",
+                                                "Kernel",
+                                                "Logic",
+                                                "Module",
+                                                "Node",
+                                                "Object",
+                                                "Pixel",
+                                                "Query",
+                                                "Runtime",
+                                                "Script",
+                                                "Token",
+                                                "Undefined",
+                                                "Virtual",
+                                                "Web",
+                                                "Xcode",
+                                                "Yota",
+                                                "Zero"
+    ]
+    private var secondColumn: [String] = ["$tack",
+                                                 "Processor",
+                                                 "Cipher",
+                                                 "Daemon",
+                                                 "EndPoint",
+                                                 "Framework",
+                                                 "Gateway",
+                                                 "Hub",
+                                                 "Interrupt",
+                                                 "Crash",
+                                                 "Loop",
+                                                 "Module",
+                                                 "Nexus",
+                                                 "Optimizer",
+                                                 "Protocol",
+                                                 "Queue",
+                                                 "Router",
+                                                 "Stack",
+                                                 "Thread",
+                                                 "Update",
+                                                 "Variable",
+                                                 "Widget",
+                                                 "Terminal",
+                                                 "Yield",
+                                                 "Zen",
+                                                 "Ace",
+                                                 "Breakpoint",
+                                                 "Root",
+                                                 "Instance",
+                                                 "Access",
+                                                 "Archive",
+                                                 "Control",
+                                                 "Justice"
+    ]
     
     var body: some View {
         
         VStack{
             
             
-            Text("Olympic Logos")
-                .font(.largeTitle)
+            Text("Wu-Tang\nCoder Name Genarator")
+                .multilineTextAlignment(.center)
+                .font(.title)
                 .fontWeight(.black)
+                .foregroundStyle(.yellow)
+                .minimumScaleFactor(0.5)
+                .frame(maxWidth: .infinity)
+                .padding(.bottom)
+                .background(.black)
+            
             Spacer()
             
-            Image(getImageName(logoName: logos[logoNumber]))
-                .resizable()
-                .scaledToFit()
-//                .clipShape(RoundedRectangle(cornerRadius: 5))
-//                .shadow(radius: 10)
-            Spacer()
+            TextField("Enter Name Here", text: $enteredText)
+                .textFieldStyle(.roundedBorder)
+                .font(.title2)
+                .overlay{
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(.gray, lineWidth: 1)
+                    
+                }
+                .focused($iSFocused)
+                .onChange(of: iSFocused) {
+                    //isFocus changes when keyboard toggles
+                    if iSFocused == true{
+                        //keyboard shows
+                        imageName = ""
+                        enteredText = ""
+                        staticCoderNameIs = ""
+                        wuTangName = ""
+                    }
+                }
+                .padding()
+            
+            Button{
+                //TODO: Button Action
+                wuTangName = getWuTangName(name: enteredText)
+                iSFocused = false
+                staticCoderNameIs = "Your Wu-Tang Coder Name is:"
+                imageName = "wu-tang"
+            } label: {
+                Image("wu-tang-button")
+                Text("Get It!")
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.black)
+            .font(.title2)
+            .fontWeight(.bold)
+            .foregroundStyle(.yellow)
+            .disabled(enteredText.isEmpty)
             
             VStack{
-                Text("\(getCity(logoName: logos[logoNumber])), \(getCountry(logoName: logos[logoNumber]))")
-                Text(getYear(logoName: logos[logoNumber]))
+                Text(staticCoderNameIs)
+                Text(wuTangName)
+                    .fontWeight(.black)
             }
             .font(.largeTitle)
-            .fontWeight(.thin)
+            .minimumScaleFactor(0.5)
+            .frame(height: 130.0)
             
-            HStack{
-                Button {
-                    //TODO: Left Button Action
-                    logoNumber -= 1
-                } label: {
-                    Image(systemName: "chevron.left.to.line")
-                }
-                .disabled(logoNumber == 0)
-                Spacer()
-                Button {
-                    //TODO: Left Button Action
-                    logoNumber += 1
-                } label: {
-                    Image(systemName: "chevron.right.to.line")
-                }
-                .disabled(logoNumber == logos.count - 1)
-            }
-            .font(.largeTitle)
-            .fontWeight(.black)
-            .tint(.black)
+            Spacer()
+            
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
             
         }//VStack
-        .padding()
+        
     }
     
     //MARK: Get Image Names
-    func getImageName(logoName: String) -> String {
-//        print("Original: \(logoName)")
-//        print("From array: \(logos[logoNumber])")
-
-        // Start with the input
-        let newLogoName = logoName
-            .replacingOccurrences(of: ".png", with: "")
-            .replacingOccurrences(of: ".jpeg", with: "")
-            .replacingOccurrences(of: ".jpg", with: "")
-
-       // print("Updated: \(newLogoName)")
-        return newLogoName
-    }
-
-    //MARK: Get Year
-    func getYear(logoName: String) -> String{
+    func getWuTangName(name: String) -> String {
        
-        let componentsArray = logoName.components(separatedBy: "-")
-        return componentsArray[0]
-    }
-    //MARK: Get Country Name
-    func getCountry(logoName: String) -> String{
-       
-        let componentsArray = logoName.components(separatedBy: "-")
-        var country = componentsArray.last ?? ""
-        country = getImageName(logoName: country)
-        return country.capitalized
-    }
-    //MARK: Get City Name
-    func getCity(logoName: String) -> String{
+        var localName = name
+        let firstLetter = localName.removeFirst()
+        print("First Letter = \(firstLetter)")
+        var firstColumnIndex = 0
         
-        var componentsArray = logoName.components(separatedBy: "-")
-        componentsArray.removeFirst()
-        componentsArray.removeLast()
-        var city = ""
-        
-        for component in componentsArray {
-            city = city + component + " "
+        for i in 0..<firstColumn.count{
+            
+            if firstColumn[i].first == firstLetter{
+                firstColumnIndex = i == 0 ? 25 : i-1
+            }
         }
-        //Remove city at the end of city
-        city.removeLast()
-        return city.capitalized
+        
+        return "\(firstColumn[firstColumnIndex]) \(secondColumn.randomElement()!)"
     }
+    
+ 
     
 }
 
