@@ -9,170 +9,136 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var enteredText: String = ""
-    @State private var staticCoderNameIs: String = ""
-    @State private var wuTangName: String = ""
-    @State private var imageName: String = "wu-tang"
-    @FocusState private var iSFocused: Bool
+    enum Dice: Int, CaseIterable, Identifiable{
+        
+        case four = 4
+        case six = 6
+        case eight = 8
+        case ten = 10
+        case twelve = 12
+        case twenty = 20
+        case hundered = 100
+        
+        
+        var id: Int{//One Value Computed Properties (or functions) don't need return
+            rawValue // Each raw value is unique, so It's a Good Id
+        }
+        
+        var description: String{
+            "\(id)-sided"
+        }
+        
+        func roll() -> Int {
+            return Int.random(in: 1...self.rawValue)
+        }
+        
+    }
     
-    private var firstColumn: [String] = ["Algorithmic",
-                                                "Byte",
-                                                "Cache",
-                                                "Debug",
-                                                "Echo",
-                                                "Function",
-                                                "Git",
-                                                "Hex",
-                                                "Infinite",
-                                                "Java",
-                                                "Kernel",
-                                                "Logic",
-                                                "Module",
-                                                "Node",
-                                                "Object",
-                                                "Pixel",
-                                                "Query",
-                                                "Runtime",
-                                                "Script",
-                                                "Token",
-                                                "Undefined",
-                                                "Virtual",
-                                                "Web",
-                                                "Xcode",
-                                                "Yota",
-                                                "Zero"
-    ]
-    private var secondColumn: [String] = ["$tack",
-                                                 "Processor",
-                                                 "Cipher",
-                                                 "Daemon",
-                                                 "EndPoint",
-                                                 "Framework",
-                                                 "Gateway",
-                                                 "Hub",
-                                                 "Interrupt",
-                                                 "Crash",
-                                                 "Loop",
-                                                 "Module",
-                                                 "Nexus",
-                                                 "Optimizer",
-                                                 "Protocol",
-                                                 "Queue",
-                                                 "Router",
-                                                 "Stack",
-                                                 "Thread",
-                                                 "Update",
-                                                 "Variable",
-                                                 "Widget",
-                                                 "Terminal",
-                                                 "Yield",
-                                                 "Zen",
-                                                 "Ace",
-                                                 "Breakpoint",
-                                                 "Root",
-                                                 "Instance",
-                                                 "Access",
-                                                 "Archive",
-                                                 "Control",
-                                                 "Justice"
-    ]
+    @State private var resultMessage: String = ""
+    @State private var animationTrigger: Bool = false//changed when animation occured
+    @State private var isDoneAnimating: Bool = true
     
     var body: some View {
         
         VStack{
             
             
-            Text("Wu-Tang\nCoder Name Genarator")
+            Text("Dungeon Dice")
                 .multilineTextAlignment(.center)
-                .font(.title)
+                .font(.largeTitle)
                 .fontWeight(.black)
-                .foregroundStyle(.yellow)
-                .minimumScaleFactor(0.5)
+                .foregroundStyle(.red)
                 .frame(maxWidth: .infinity)
                 .padding(.bottom)
-                .background(.black)
             
             Spacer()
             
-            TextField("Enter Name Here", text: $enteredText)
-                .textFieldStyle(.roundedBorder)
-                .font(.title2)
-                .overlay{
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(.gray, lineWidth: 1)
-                    
-                }
-                .focused($iSFocused)
-                .onChange(of: iSFocused) {
-                    //isFocus changes when keyboard toggles
-                    if iSFocused == true{
-                        //keyboard shows
-                        imageName = ""
-                        enteredText = ""
-                        staticCoderNameIs = ""
-                        wuTangName = ""
+            
+            Text(resultMessage)
+                .font(.largeTitle)
+                .fontWeight(.medium)
+                .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.5)
+                .rotation3DEffect(isDoneAnimating ? .degrees(360) : .degrees(0), axis: (x: 1, y: 0, z: 0))
+                .frame(height: 150.0)
+                .onChange(of: animationTrigger){
+                    isDoneAnimating = false //Set to beginning "false" state right away
+                    withAnimation(.interpolatingSpring(duration: 0.6, bounce: 0.4)) {
+                        isDoneAnimating = true
                     }
                 }
-                .padding()
             
-            Button{
-                //TODO: Button Action
-                wuTangName = getWuTangName(name: enteredText)
-                iSFocused = false
-                staticCoderNameIs = "Your Wu-Tang Coder Name is:"
-                imageName = "wu-tang"
-            } label: {
-                Image("wu-tang-button")
-                Text("Get It!")
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(.black)
-            .font(.title2)
-            .fontWeight(.bold)
-            .foregroundStyle(.yellow)
-            .disabled(enteredText.isEmpty)
-            
-            VStack{
-                Text(staticCoderNameIs)
-                Text(wuTangName)
-                    .fontWeight(.black)
-            }
-            .font(.largeTitle)
-            .minimumScaleFactor(0.5)
-            .frame(height: 130.0)
             
             Spacer()
+            //MARK: Can we use LazyVGrid And ForEach Loop
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 102))]) {
+                
+                ForEach(Dice.allCases) { dice in
+                    
+                    Button(dice.description) {
+                        resultMessage = "You rolled a \(dice.roll()) on a \(dice.rawValue)-sided dice!"
+                        animationTrigger.toggle()
+                    }
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.red)
+            }
             
-            Image(imageName)
-                .resizable()
-                .scaledToFit()
+            //MARK: Can we use Group Also
+            //            Group {
+            //                HStack {
+            //                    Button("\(Dice.four.rawValue)-sided") {
+            //                        resultMessage = "You rolled a \(Dice.four.roll()) on a \(Dice.four.rawValue)-sided dice!"
+            //                    }
+            //                    Spacer()
+            //                    Button("\(Dice.six.rawValue)-sided") {
+            //                        resultMessage = "You rolled a \(Dice.six.roll()) on a \(Dice.six.rawValue)-sided dice!"
+            //                    }
+            //                    Spacer()
+            //                    Button("\(Dice.eight.rawValue)-sided") {
+            //                        resultMessage = "You rolled a \(Dice.eight.roll()) on a \(Dice.eight.rawValue)-sided dice!"
+            //                    }
+            //
+            //                }
+            //
+            //                HStack {
+            //
+            //                    Button("\(Dice.ten.rawValue)-sided") {
+            //                        resultMessage = "You rolled a \(Dice.ten.roll()) on a \(Dice.ten.rawValue)-sided dice!"
+            //                    }
+            //
+            //                    Spacer()
+            //                    Button("\(Dice.twelve.rawValue)-sided") {
+            //                        resultMessage = "You rolled a \(Dice.twelve.roll()) on a \(Dice.twelve.rawValue)-sided dice!"
+            //                    }
+            //                    Spacer()
+            //                    Button("\(Dice.twenty.rawValue)-sided") {
+            //                        resultMessage = "You rolled a \(Dice.twenty.roll()) on a \(Dice.twenty.rawValue)-sided dice!"
+            //                    }
+            //                }
+            //
+            //                Button("\(Dice.hundered.rawValue)-sided") {
+            //                    resultMessage = "You rolled a \(Dice.hundered.roll()) on a \(Dice.hundered.rawValue)-sided dice!"
+            //                }
+            //
+            //
+            //            }
+            
+            //                .buttonStyle(.borderedProminent)
+            //                .tint(.red)
+            //                .padding()
+            
             
         }//VStack
+        .padding()
         
     }
-    
-    //MARK: Get Image Names
-    func getWuTangName(name: String) -> String {
-       
-        var localName = name
-        let firstLetter = localName.removeFirst()
-        print("First Letter = \(firstLetter)")
-        var firstColumnIndex = 0
-        
-        for i in 0..<firstColumn.count{
-            
-            if firstColumn[i].first == firstLetter{
-                firstColumnIndex = i == 0 ? 25 : i-1
-            }
-        }
-        
-        return "\(firstColumn[firstColumnIndex]) \(secondColumn.randomElement()!)"
-    }
-    
- 
     
 }
 
 #Preview {
     ContentView()
 }
+
+
+
