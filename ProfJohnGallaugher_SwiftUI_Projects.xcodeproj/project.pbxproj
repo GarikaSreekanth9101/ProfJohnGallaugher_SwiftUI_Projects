@@ -6,17 +6,22 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EFEB0F782E7940A200609C85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFEB0F722E7940A200609C85 /* Assets.xcassets */; };
+		EFEB0F792E7940A200609C85 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEB0F732E7940A200609C85 /* DetailView.swift */; };
+		EFEB0F7A2E7940A200609C85 /* ProfJohnGallaugher_SwiftUI_ProjectsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEB0F742E7940A200609C85 /* ProfJohnGallaugher_SwiftUI_ProjectsApp.swift */; };
+		EFEB0F7B2E7940A200609C85 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEB0F752E7940A200609C85 /* ToDo.swift */; };
+		EFEB0F7C2E7940A200609C85 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEB0F762E7940A200609C85 /* ToDoListView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		EF56ED6F2E38EEE400CD3186 /* ProfJohnGallaugher_SwiftUI_Projects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfJohnGallaugher_SwiftUI_Projects.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFEB0F722E7940A200609C85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFEB0F732E7940A200609C85 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		EFEB0F742E7940A200609C85 /* ProfJohnGallaugher_SwiftUI_ProjectsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfJohnGallaugher_SwiftUI_ProjectsApp.swift; sourceTree = "<group>"; };
+		EFEB0F752E7940A200609C85 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		EFEB0F762E7940A200609C85 /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		EF56ED712E38EEE400CD3186 /* ProfJohnGallaugher_SwiftUI_Projects */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ProfJohnGallaugher_SwiftUI_Projects;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EF56ED6C2E38EEE400CD3186 /* Frameworks */ = {
@@ -32,7 +37,7 @@
 		EF56ED662E38EEE400CD3186 = {
 			isa = PBXGroup;
 			children = (
-				EF56ED712E38EEE400CD3186 /* ProfJohnGallaugher_SwiftUI_Projects */,
+				EFEB0F772E7940A200609C85 /* ProfJohnGallaugher_SwiftUI_Projects */,
 				EF56ED702E38EEE400CD3186 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +48,34 @@
 				EF56ED6F2E38EEE400CD3186 /* ProfJohnGallaugher_SwiftUI_Projects.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EFEB0F772E7940A200609C85 /* ProfJohnGallaugher_SwiftUI_Projects */ = {
+			isa = PBXGroup;
+			children = (
+				EFEB0F742E7940A200609C85 /* ProfJohnGallaugher_SwiftUI_ProjectsApp.swift */,
+				EFEB0F7E2E79415200609C85 /* Models */,
+				EFEB0F7D2E79412700609C85 /* Views */,
+				EFEB0F722E7940A200609C85 /* Assets.xcassets */,
+			);
+			path = ProfJohnGallaugher_SwiftUI_Projects;
+			sourceTree = "<group>";
+		};
+		EFEB0F7D2E79412700609C85 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EFEB0F762E7940A200609C85 /* ToDoListView.swift */,
+				EFEB0F732E7940A200609C85 /* DetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EFEB0F7E2E79415200609C85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EFEB0F752E7940A200609C85 /* ToDo.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +92,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				EF56ED712E38EEE400CD3186 /* ProfJohnGallaugher_SwiftUI_Projects */,
 			);
 			name = ProfJohnGallaugher_SwiftUI_Projects;
 			packageProductDependencies = (
@@ -109,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFEB0F782E7940A200609C85 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFEB0F792E7940A200609C85 /* DetailView.swift in Sources */,
+				EFEB0F7A2E7940A200609C85 /* ProfJohnGallaugher_SwiftUI_ProjectsApp.swift in Sources */,
+				EFEB0F7B2E7940A200609C85 /* ToDo.swift in Sources */,
+				EFEB0F7C2E7940A200609C85 /* ToDoListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +292,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ProfJohnGallaugher-SwiftUI-Projects-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = DungeonDice;
+				INFOPLIST_KEY_CFBundleDisplayName = ToDoList;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -286,7 +321,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ProfJohnGallaugher-SwiftUI-Projects-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = DungeonDice;
+				INFOPLIST_KEY_CFBundleDisplayName = ToDoList;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
