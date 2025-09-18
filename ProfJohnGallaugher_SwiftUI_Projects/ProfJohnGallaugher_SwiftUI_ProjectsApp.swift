@@ -12,12 +12,12 @@ import SwiftData
 struct ProfJohnGallaugher_SwiftUI_ProjectsApp: App {
     var body: some Scene {
         WindowGroup {
-            ToDoListView()
-                .modelContainer(for: ToDo.self)
+            SnackListView()
+                .modelContainer(for: Snack.self) //Set's up the 'container' or Database Structure - it will hold snack types
         }
     }
     
-    //Will allow us to find where our simulator data is saved
+    //print out the application path where our simulator data can be found - if browsing with DB Browser
     init() {
         print(URL.applicationSupportDirectory.path(percentEncoded: false))
     }

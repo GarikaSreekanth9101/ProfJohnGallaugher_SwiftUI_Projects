@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EFDD72312E798F6B005E8ADF /* Snack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD72302E798F6B005E8ADF /* Snack.swift */; };
 		EFEB0F782E7940A200609C85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFEB0F722E7940A200609C85 /* Assets.xcassets */; };
-		EFEB0F792E7940A200609C85 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEB0F732E7940A200609C85 /* DetailView.swift */; };
+		EFEB0F792E7940A200609C85 /* SnackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEB0F732E7940A200609C85 /* SnackDetailView.swift */; };
 		EFEB0F7A2E7940A200609C85 /* ProfJohnGallaugher_SwiftUI_ProjectsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEB0F742E7940A200609C85 /* ProfJohnGallaugher_SwiftUI_ProjectsApp.swift */; };
-		EFEB0F7B2E7940A200609C85 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEB0F752E7940A200609C85 /* ToDo.swift */; };
-		EFEB0F7C2E7940A200609C85 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEB0F762E7940A200609C85 /* ToDoListView.swift */; };
+		EFEB0F7C2E7940A200609C85 /* SnackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEB0F762E7940A200609C85 /* SnackListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EF56ED6F2E38EEE400CD3186 /* ProfJohnGallaugher_SwiftUI_Projects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfJohnGallaugher_SwiftUI_Projects.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFDD72302E798F6B005E8ADF /* Snack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snack.swift; sourceTree = "<group>"; };
 		EFEB0F722E7940A200609C85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EFEB0F732E7940A200609C85 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		EFEB0F732E7940A200609C85 /* SnackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackDetailView.swift; sourceTree = "<group>"; };
 		EFEB0F742E7940A200609C85 /* ProfJohnGallaugher_SwiftUI_ProjectsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfJohnGallaugher_SwiftUI_ProjectsApp.swift; sourceTree = "<group>"; };
-		EFEB0F752E7940A200609C85 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
-		EFEB0F762E7940A200609C85 /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
+		EFEB0F762E7940A200609C85 /* SnackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +64,8 @@
 		EFEB0F7D2E79412700609C85 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EFEB0F762E7940A200609C85 /* ToDoListView.swift */,
-				EFEB0F732E7940A200609C85 /* DetailView.swift */,
+				EFEB0F762E7940A200609C85 /* SnackListView.swift */,
+				EFEB0F732E7940A200609C85 /* SnackDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -73,7 +73,7 @@
 		EFEB0F7E2E79415200609C85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EFEB0F752E7940A200609C85 /* ToDo.swift */,
+				EFDD72302E798F6B005E8ADF /* Snack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,10 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFEB0F792E7940A200609C85 /* DetailView.swift in Sources */,
+				EFEB0F792E7940A200609C85 /* SnackDetailView.swift in Sources */,
 				EFEB0F7A2E7940A200609C85 /* ProfJohnGallaugher_SwiftUI_ProjectsApp.swift in Sources */,
-				EFEB0F7B2E7940A200609C85 /* ToDo.swift in Sources */,
-				EFEB0F7C2E7940A200609C85 /* ToDoListView.swift in Sources */,
+				EFEB0F7C2E7940A200609C85 /* SnackListView.swift in Sources */,
+				EFDD72312E798F6B005E8ADF /* Snack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +292,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ProfJohnGallaugher-SwiftUI-Projects-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ToDoList;
+				INFOPLIST_KEY_CFBundleDisplayName = ESSI;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -321,7 +321,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ProfJohnGallaugher-SwiftUI-Projects-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ToDoList;
+				INFOPLIST_KEY_CFBundleDisplayName = ESSI;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
